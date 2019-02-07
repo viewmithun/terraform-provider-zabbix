@@ -41,6 +41,7 @@ var interfaceSchema *schema.Resource = &schema.Resource{
 		"type": &schema.Schema{
 			Type:     schema.TypeString,
 			Optional: true,
+			Default:  "agent",
 			ForceNew: true,
 		},
 		"interface_id": &schema.Schema{
