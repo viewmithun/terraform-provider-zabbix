@@ -145,6 +145,7 @@ func getInterfaces(d *schema.ResourceData) (zabbix.HostInterfaces, error) {
 			DNS:   dns,
 			Main:  main,
 			Port:  d.Get(prefix + "port").(string),
+			Type:  typeId,
 			UseIP: useip,
 		}
 	}
