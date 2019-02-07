@@ -41,7 +41,6 @@ var interfaceSchema *schema.Resource = &schema.Resource{
 		"type": &schema.Schema{
 			Type:     schema.TypeString,
 			Optional: true,
-			Default:  "agent",
 			ForceNew: true,
 		},
 		"interface_id": &schema.Schema{
@@ -115,9 +114,7 @@ func getInterfaces(d *schema.ResourceData) (zabbix.HostInterfaces, error) {
 
 		interfaceType := d.Get(prefix + "type").(string)
 
-		typeId, ok := HOST_INTERFACE_TYPES[interfaceType]
-
-		if !ok {
+		if interfaceType == "" {
 			return nil, errors.New(fmt.Sprintf("%s isnt valid interface type", interfaceType))
 		}
 
@@ -145,7 +142,6 @@ func getInterfaces(d *schema.ResourceData) (zabbix.HostInterfaces, error) {
 			DNS:   dns,
 			Main:  main,
 			Port:  d.Get(prefix + "port").(string),
-			Type:  typeId,
 			UseIP: useip,
 		}
 	}
