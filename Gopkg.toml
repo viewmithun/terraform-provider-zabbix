@@ -22,7 +22,7 @@
 
 
 [[constraint]]
-  name = "github.com/dainis/zabbix"
+  name = "github.com/viewmithun/zabbix"
   version = "0.3.0"
 
 [[constraint]]
